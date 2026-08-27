@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "package": "flutter-sdk",
+  "ecosystem": "flutter",
+  "name": "egensolve_realtime_flutter",
+  "version": "0.3.0",
+  "repository": "Egensolve/realtime-flutter",
+  "environment": "release-flutter-sdk",
+  "tag": "v0.3.0",
+  "archiveSha256": "3d06a042b263097020efe01562c9ae980f484aae2aad0cde2f3678c3002627d6",
+  "files": {
+    "CHANGELOG.md": "e087735622496633a9c9b1a63ba6b32faca20496ee6eff3e341cc4b9f9bce79e",
+    "LICENSE": "0c71513f36e15a58a21b69f6596b92a70ac05ff2c61e4d7d3ad41e78c2a25912",
+    "README.md": "954a93d4ed8047d287583d337a19a20a3726fe76181764d5a4a4b2d913b88f0b",
+    "lib/egensolve_realtime_flutter.dart": "7df361a1e2c7dbba852023e74dd72efc69060a7214e04e69cdc34c8414bc2d75",
+    "lib/src/app_lifecycle_mapping.dart": "34fa32ef5f956ecdbba4530d49f0f421a0bfe0f19e60ec169ad8ea414272f1b0",
+    "lib/src/client_owner.dart": "3e969532f3b28cb8274ebee8fd56a75fd0f88bcd5bcdc23a825a40f779160874",
+    "lib/src/connectivity.dart": "5e89a5744e3937eaf05a6b7a8afd0b55054ecc41e7afc261ca8318d1f93ab53a",
+    "lib/src/presence_typing.dart": "88a9a4f0e83f9b8711fa0f23358732f1110310aef407c343625f832f0ad23f98",
+    "lib/src/real_ports.dart": "969c284e72b813534042b1e60d914911af4919836b3c21245c84d2bf572a237f",
+    "pubspec.yaml": "d574fde65e6591051621661287b80312f824816675a1ae8d5633e383476f19ce"
+  },
+  "promoterSha256": "78416dc1545463556a20f940df2f6c3eb934299b7e9319b553168c9a8ec8dbaa",
+  "smokeSha256": "392fd534823877ff69a619f1cc207128bc22c2b4291bb4cbfe3a6cf6254bd217",
+  "workflowSha256": "bae50ea2102e7c6c282c9058fec5dde5cf1da6a1c4e63b0ad5fcec1536f33827"
+}

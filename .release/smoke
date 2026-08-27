@@ -1,0 +1,22 @@
+import 'package:egensolve_realtime/lifecycle.dart';
+import 'package:egensolve_realtime_flutter/egensolve_realtime_flutter.dart';
+import 'package:flutter/widgets.dart' show AppLifecycleState;
+import 'package:flutter_test/flutter_test.dart';
+
+void main() {
+  test('public archive exports its consumer API', () {
+    final owner = FlutterRealtimeClientOwner(
+      clientFactory: (LifecycleSignalSource signals) {
+        throw StateError('not started by this smoke test');
+      },
+    );
+    expect(owner.isDisposed, isFalse);
+    expect(
+      mapAppLifecycleState(AppLifecycleState.resumed),
+      LifecycleSignalKind.appForeground,
+    );
+    const SystemClock().now();
+    const TimerScheduler();
+    owner.dispose();
+  });
+}
