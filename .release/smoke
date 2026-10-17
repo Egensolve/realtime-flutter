@@ -1,10 +1,13 @@
+import 'package:egensolve_realtime/intelligence.dart';
 import 'package:egensolve_realtime/lifecycle.dart';
+import 'package:egensolve_realtime/calls.dart';
 import 'package:egensolve_realtime_flutter/egensolve_realtime_flutter.dart';
 import 'package:flutter/widgets.dart' show AppLifecycleState;
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  test('public archive exports its consumer API', () {
+  test('public archive exports its consumer API', () async {
+    expect(IntelligenceClient, isA<Type>());
     final owner = FlutterRealtimeClientOwner(
       clientFactory: (LifecycleSignalSource signals) {
         throw StateError('not started by this smoke test');
@@ -17,6 +20,51 @@ void main() {
     );
     const SystemClock().now();
     const TimerScheduler();
+    final calls = FlutterCallCoordinator(
+      installationRef: 'installation_alpha',
+      control: _Control(),
+      rtc: _Rtc(),
+      osSurface: _Os(),
+      foregroundService: _Foreground(),
+    );
+    expect(calls.projection.uiState, CallUiState.idle);
+    await calls.dispose();
     owner.dispose();
   });
+}
+
+final class _Control implements CallControlPort {
+  @override
+  Future<void> fetchCanonicalSnapshot(String callId) async {}
+  @override
+  Future<void> requestJoinCredential(String callId) async {}
+  @override
+  Future<void> restoreCallSubscription(String callId) async {}
+}
+
+final class _Rtc implements CallRtcSessionPort {
+  @override
+  Future<void> connect(String callId) async {}
+  @override
+  Future<void> discardCredential() async {}
+  @override
+  Future<void> discardMediaKey() async {}
+  @override
+  Future<void> stopLocalMedia() async {}
+}
+
+final class _Os implements CallOsSurfacePort {
+  @override
+  Future<void> endCall(String? callId) async {}
+  @override
+  Future<void> reportIncomingCall(String callId) async {}
+  @override
+  Future<void> updateCall(String callId, CallUiState state) async {}
+}
+
+final class _Foreground implements CallForegroundServicePort {
+  @override
+  Future<void> startForCall(String callId) async {}
+  @override
+  Future<void> stop() async {}
 }
